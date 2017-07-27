@@ -1,16 +1,16 @@
 package com.viger.gf_bdj;
 
+import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.TimerTask;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,8 +34,32 @@ public class LaunchActivity extends Activity {
         objectAnimator = ObjectAnimator.ofFloat(ivSplash, "alpha", 0.0f, 1.0f);
         objectAnimator.setDuration(3000);
         objectAnimator.start();
-        scheduledExecutorService = Executors.newScheduledThreadPool(2);
-        scheduledExecutorService.schedule(task, 3, TimeUnit.SECONDS);
+        objectAnimator.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animator) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animator) {
+                Toast.makeText(LaunchActivity.this, "动画结束监听进入主页", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(LaunchActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animator) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animator) {
+
+            }
+        });
+        //scheduledExecutorService = Executors.newScheduledThreadPool(2);
+        //scheduledExecutorService.schedule(task, 3, TimeUnit.SECONDS);
     }
 
     private TimerTask task = new TimerTask() {
@@ -44,7 +68,7 @@ public class LaunchActivity extends Activity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    Toast.makeText(LaunchActivity.this, "进入主页", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LaunchActivity.this, "定时器进入主页", Toast.LENGTH_SHORT).show();
                 }
             });
         }
