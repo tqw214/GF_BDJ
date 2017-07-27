@@ -1,6 +1,7 @@
 package com.viger.gf_bdj;
 
 import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Intent;
@@ -34,28 +35,14 @@ public class LaunchActivity extends Activity {
         objectAnimator = ObjectAnimator.ofFloat(ivSplash, "alpha", 0.0f, 1.0f);
         objectAnimator.setDuration(3000);
         objectAnimator.start();
-        objectAnimator.addListener(new Animator.AnimatorListener() {
+        objectAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
-            public void onAnimationStart(Animator animator) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animator) {
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
                 Toast.makeText(LaunchActivity.this, "动画结束监听进入主页", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(LaunchActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animator) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animator) {
-
             }
         });
         //scheduledExecutorService = Executors.newScheduledThreadPool(2);
