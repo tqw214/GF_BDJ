@@ -9,10 +9,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import java.util.TimerTask;
 import java.util.concurrent.ScheduledExecutorService;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
