@@ -31,7 +31,7 @@ public class LaunchActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
         ButterKnife.bind(this);
-        objectAnimator = ObjectAnimator.ofFloat(ivSplash, "scaleX", 0.5f, 1.0f);
+        objectAnimator = ObjectAnimator.ofFloat(ivSplash, "alpha", 0.0f, 1.0f);
         objectAnimator.setDuration(3000);
         objectAnimator.start();
         scheduledExecutorService = Executors.newScheduledThreadPool(2);
