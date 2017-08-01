@@ -32,6 +32,11 @@ public abstract class BaseFragment<P extends MvpBasePresenter> extends MvpFragme
         return viewContent;
     }
 
+    @Override
+    public P bindPresenter() {
+        return null;
+    }
+
     protected abstract int getContentView();
     protected abstract void initContentView(View viewContent);
 
