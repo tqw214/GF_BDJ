@@ -6,6 +6,4 @@ package com.viger.gf_bdj.mvp.view;
 
 public interface MvpView {
 
-
-
 }
