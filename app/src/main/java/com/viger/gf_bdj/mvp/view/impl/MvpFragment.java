@@ -28,8 +28,8 @@ public abstract class MvpFragment<P extends MvpBasePresenter> extends Fragment i
     public abstract P bindPresenter();
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onDestroyView() {
+        super.onDestroyView();
         if(presenter != null) {
             presenter.detachView();
         }
