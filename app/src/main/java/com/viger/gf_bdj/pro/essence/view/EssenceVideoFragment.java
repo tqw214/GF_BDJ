@@ -1,4 +1,4 @@
-package com.viger.gf_bdj.pro.essence.view.navigation;
+package com.viger.gf_bdj.pro.essence.view;
 
 import android.view.View;
 import android.widget.TextView;
