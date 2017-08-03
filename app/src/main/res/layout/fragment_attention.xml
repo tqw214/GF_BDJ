@@ -4,11 +4,29 @@
     android:layout_height="match_parent"
     android:clickable="true">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="关注页面"
-        android:textSize="20sp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@android:color/white">
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@android:color/transparent"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/essence_tab_text_color_press"
+            app:tabTextColor="@color/essence_tab_text_color_normal"
+            app:tabIndicatorColor="@color/essence_tab_text_color_press"
+            app:tabIndicatorHeight="2dp"
+            />
+    </RelativeLayout>
 
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 
 </FrameLayout>
