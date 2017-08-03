@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import com.viger.gf_bdj.R;
 import com.viger.gf_bdj.pro.base.view.BaseFragment;
-import com.viger.gf_bdj.pro.essence.view.adapter.EssenceAdapter;
+import com.viger.gf_bdj.pro.newpost.view.adapter.NewpostAdapter;
 import com.viger.gf_bdj.pro.newpost.view.navigation.NewpostNavigationBuilder;
 
 import java.util.Arrays;
@@ -37,7 +37,7 @@ public class NewpostFragment extends BaseFragment {
     @Override
     protected void initData() {
         String[] titles = getResources().getStringArray(R.array.newpost_video_tab);
-        EssenceAdapter adapter = new EssenceAdapter(getFragmentManager(), Arrays.asList(titles));
+        NewpostAdapter adapter = new NewpostAdapter(getFragmentManager(), Arrays.asList(titles));
         view_pager.setAdapter(adapter);
         tab_layout.setupWithViewPager(view_pager);
     }
