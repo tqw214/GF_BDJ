@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 import java.util.TimerTask;
@@ -30,6 +31,7 @@ public class LaunchActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
         ButterKnife.bind(this);
+        Log.d("tag", "start app==>");
         objectAnimator = ObjectAnimator.ofFloat(ivSplash, "alpha", 0.0f, 1.0f);
         objectAnimator.setDuration(3000);
         objectAnimator.start();

@@ -1,7 +1,7 @@
 package com.viger.gf_bdj.pro.essence.view.navigation;
 
 import android.content.Context;
-
+import com.viger.gf_bdj.R;
 import com.viger.gf_bdj.pro.base.view.navigation.NavigationBuilderAdapter;
 
 /**
@@ -16,6 +16,6 @@ public class EssenceNavigationBuilder extends NavigationBuilderAdapter {
 
     @Override
     public int getLayoutId() {
-        return 0;
+        return R.layout.toolbar_essence_layout;
     }
 }

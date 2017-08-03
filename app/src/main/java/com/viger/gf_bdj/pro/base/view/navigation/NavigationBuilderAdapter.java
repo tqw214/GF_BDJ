@@ -17,9 +17,7 @@ public abstract class NavigationBuilderAdapter implements NavigationBuilder {
     private int leftIconRes;
     private int rightIconRes;
     private int titleIconRes;
-
     private View contentView;
-
     private View.OnClickListener leftIconOnClickListener;
     private View.OnClickListener rightIconOnClickListener;
 
