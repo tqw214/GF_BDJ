@@ -24,6 +24,11 @@ public class NewpostFragment extends BaseFragment {
         initToolBar(viewContent);
     }
 
+    @Override
+    protected void initData() {
+
+    }
+
     private void initToolBar(View view) {
         NewpostNavigationBuilder builder = new NewpostNavigationBuilder(getContext());
         builder.setTitleIcon(R.drawable.main_essence_title)

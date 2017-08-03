@@ -24,6 +24,11 @@ public class MineFragment extends BaseFragment {
         initToolBar(viewContent);
     }
 
+    @Override
+    protected void initData() {
+
+    }
+
     private void initToolBar(View view) {
         MineNavigationBuilder builder = new MineNavigationBuilder(getContext());
         builder.setTitleIcon(R.drawable.main_essence_title)

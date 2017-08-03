@@ -24,6 +24,11 @@ public class EssenceFragment extends BaseFragment {
         initToolBar(viewContent);
     }
 
+    @Override
+    protected void initData() {
+
+    }
+
     private void initToolBar(View view) {
         EssenceNavigationBuilder builder = new EssenceNavigationBuilder(getContext());
         builder.setTitleIcon(R.drawable.main_essence_title)

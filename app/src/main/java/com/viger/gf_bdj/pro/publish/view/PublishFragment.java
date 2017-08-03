@@ -21,5 +21,10 @@ public class PublishFragment extends BaseFragment {
 
     }
 
+    @Override
+    protected void initData() {
+
+    }
+
 
 }

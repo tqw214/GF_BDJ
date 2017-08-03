@@ -98,6 +98,7 @@
     <string name="main_attention_text">关注</string>
     <string name="main_mine_title_text">我的</string>
 
+    <!--此类数据可由服务器配置-->
     <array name="essence_video_tab">
         <item>全部@dream@0</item>
         <item>视频@dream@1</item>
