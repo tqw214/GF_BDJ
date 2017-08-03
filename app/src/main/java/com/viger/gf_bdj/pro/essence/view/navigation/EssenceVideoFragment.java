@@ -1,6 +1,7 @@
 package com.viger.gf_bdj.pro.essence.view.navigation;
 
 import android.view.View;
+import android.widget.TextView;
 
 import com.viger.gf_bdj.R;
 import com.viger.gf_bdj.pro.base.view.BaseFragment;
@@ -13,11 +14,11 @@ public class EssenceVideoFragment extends BaseFragment {
 
     private int mType = 0;
 
-    public void setmType(int mType) {
+    public void setType(int mType) {
         this.mType = mType;
     }
 
-    public void setmTitle(String mTitle) {
+    public void setTitle(String mTitle) {
         this.mTitle = mTitle;
     }
 
@@ -30,6 +31,12 @@ public class EssenceVideoFragment extends BaseFragment {
 
     @Override
     protected void initContentView(View viewContent) {
+        TextView content = getContentLayout().findViewById(R.id.tv_content);
+        content.setText(mTitle);
+    }
+
+    @Override
+    protected void initData() {
 
     }
 }

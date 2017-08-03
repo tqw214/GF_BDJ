@@ -42,4 +42,8 @@ public abstract class BaseFragment<P extends MvpBasePresenter> extends MvpFragme
     protected abstract void initContentView(View viewContent);
     protected abstract void initData();
 
+    protected View getContentLayout() {
+        return viewContent;
+    }
+
 }

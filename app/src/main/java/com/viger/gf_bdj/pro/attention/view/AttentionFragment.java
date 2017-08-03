@@ -21,5 +21,10 @@ public class AttentionFragment extends BaseFragment {
 
     }
 
+    @Override
+    protected void initData() {
+
+    }
+
 
 }
