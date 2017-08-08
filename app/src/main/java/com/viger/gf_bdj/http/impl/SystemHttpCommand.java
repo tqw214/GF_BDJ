@@ -14,7 +14,12 @@ public class SystemHttpCommand implements IHttpCommand<HashMap<String, Object>> 
 
     @Override
     public String execute(String url, IRequestParam<HashMap<String, Object>> requestParam) {
-        return HttpUtils.post();
+        try {
+            return HttpUtils.post(url, requestParam.getRequestParam());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

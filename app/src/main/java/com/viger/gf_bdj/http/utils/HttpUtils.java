@@ -1,7 +1,9 @@
 package com.viger.gf_bdj.http.utils;
 
+import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
@@ -64,9 +66,18 @@ public class HttpUtils {
         sb = new StringBuffer();
         if(HttpURLConnection.HTTP_OK == resultCode) {
             String readLine = new String();
+            BufferedReader responseReader = new BufferedReader(new InputStreamReader(httpConn.getInputStream(), "UTF-8"));
+            while((readLine = responseReader.readLine())!=null) {
+                sb.append(readLine).append("\n");
+            }
+            responseReader.close();
+            return sb.toString();
         }
-
         return null;
+    }
+
+    public interface OnHttpResultListener {
+        public void onResult(String result);
     }
 
 }
