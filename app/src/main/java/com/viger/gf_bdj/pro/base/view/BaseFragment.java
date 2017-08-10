@@ -15,6 +15,7 @@ import com.viger.gf_bdj.mvp.view.impl.MvpFragment;
 public abstract class BaseFragment<P extends MvpBasePresenter> extends MvpFragment<P> {
     //我们自己的fragment需要缓存视图
     private View viewContent;
+    private boolean isInit;
 
     @Nullable
     @Override
@@ -22,7 +23,6 @@ public abstract class BaseFragment<P extends MvpBasePresenter> extends MvpFragme
         if(viewContent == null) {
             viewContent = inflater.inflate(getContentView(), container, false);
             initContentView(viewContent);
-            initData();
         }
         //判断fragment对应的activity是否存在这个视图
         ViewGroup parent = (ViewGroup) viewContent.getParent();
@@ -31,6 +31,15 @@ public abstract class BaseFragment<P extends MvpBasePresenter> extends MvpFragme
             parent.removeView(viewContent);
         }
         return viewContent;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        if(!isInit) {
+            isInit = true;
+            initData();
+        }
     }
 
     @Override

@@ -10,8 +10,10 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
+
 import java.util.TimerTask;
 import java.util.concurrent.ScheduledExecutorService;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -39,12 +41,13 @@ public class LaunchActivity extends Activity {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                Toast.makeText(LaunchActivity.this, "动画结束监听进入主页", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(LaunchActivity.this, "动画结束监听进入主页", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(LaunchActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
+
         //scheduledExecutorService = Executors.newScheduledThreadPool(2);
         //scheduledExecutorService.schedule(task, 3, TimeUnit.SECONDS);
     }

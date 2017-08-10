@@ -47,4 +47,5 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
     compile files('libs/library-1.0.19.jar')
     compile files('libs/gson-2.2.4.jar')
+    compile 'com.huxq17.xrefreshview:xrefreshview:3.6.9'
 }
