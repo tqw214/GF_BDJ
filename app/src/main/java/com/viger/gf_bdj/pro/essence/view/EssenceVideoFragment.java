@@ -1,8 +1,9 @@
 package com.viger.gf_bdj.pro.essence.view;
 
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.TextView;
 
+import com.andview.refreshview.XRefreshView;
 import com.viger.gf_bdj.R;
 import com.viger.gf_bdj.bean.PostsListBean;
 import com.viger.gf_bdj.mvp.presenter.impl.MvpBasePresenter;
@@ -22,6 +23,8 @@ public class EssenceVideoFragment extends BaseFragment {
     private int mType = 0;
     private String mTitle;
     private EssenceVideoPresenter presenter;
+    private XRefreshView xRefreshView;
+    private RecyclerView recyclerView;
 
     public void setType(int mType) {
         this.mType = mType;
@@ -43,8 +46,11 @@ public class EssenceVideoFragment extends BaseFragment {
 
     @Override
     protected void initContentView(View viewContent) {
-        TextView content = getContentLayout().findViewById(R.id.tv_content);
-        content.setText(mTitle);
+        //初始化
+        xRefreshView = viewContent.findViewById(R.id.xrefreshview);
+        recyclerView = viewContent.findViewById(R.id.recyclerview);
+
+
     }
 
     @Override

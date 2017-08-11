@@ -2,12 +2,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_content"
+    <com.andview.refreshview.XRefreshView
+        android:id="@+id/xrefreshview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="30sp"
-        android:gravity="center"
-        android:textColor="@color/essence_tab_text_color_press"/>
+        android:background="#f3f3f3"
+        >
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin = "4dp"
+            android:background="#bbccaa"
+            android:scrollbars="vertical"/>
+
+    </com.andview.refreshview.XRefreshView>
 
 </FrameLayout>
