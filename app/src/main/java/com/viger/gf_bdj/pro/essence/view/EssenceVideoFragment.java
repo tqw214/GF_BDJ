@@ -58,7 +58,7 @@ public class EssenceVideoFragment extends BaseFragment {
         xRefreshView = viewContent.findViewById(R.id.xrefreshview);
         xRefreshView.setPullRefreshEnable(true);// 设置是否可以下拉刷新
         xRefreshView.setPullLoadEnable(true);// 设置是否可以上拉加载
-        xRefreshView.setPinnedTime(1000);// 设置刷新完成以后，headerview固定的时间
+        xRefreshView.setPinnedTime(500);// 设置刷新完成以后，headerview固定的时间
         xRefreshView.setAutoLoadMore(true);// 设置支持自动刷新
         //xRefreshView.setPreLoadCount(2); //设置静默加载时提前加载的item个数
 
@@ -93,7 +93,7 @@ public class EssenceVideoFragment extends BaseFragment {
             @Override
             public void onResult(List<PostsListBean.PostList> result) {
                 if(isDownRefresh) {
-                    xRefreshView.startRefresh();
+                    xRefreshView.stopRefresh();
                 }else {
                     xRefreshView.stopLoadMore();
                 }
