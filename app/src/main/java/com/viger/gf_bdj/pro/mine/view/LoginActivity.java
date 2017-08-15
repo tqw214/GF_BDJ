@@ -50,8 +50,12 @@ public class LoginActivity extends BaseActivity {
                 loginPresenter.login(phone, password, new BasePresenter.OnUiThreadListener<UserBean>() {
                     @Override
                     public void onResult(UserBean result) {
-                        ToastUtil.showToast(LoginActivity.this, result.getUsername()+",欢迎登陆!");
-                        finish();
+                        if(result == null) {
+                            ToastUtil.showToast(LoginActivity.this, "登陆失败!");
+                        }else {
+                            ToastUtil.showToast(LoginActivity.this, result.getUsername()+",欢迎登陆!");
+                            finish();
+                        }
                     }
                 });
             }

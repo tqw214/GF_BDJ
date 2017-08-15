@@ -26,8 +26,13 @@ public class LoginPresenter extends BasePresenter<LoginModel> {
         getModel().login(username, password, new HttpUtils.OnHttpResultListener() {
             @Override
             public void onResult(String result) {
-                UserBean userBean = getGson().fromJson(result, UserBean.class);
-                onUiThreadListener.onResult(userBean);
+                if(result == null) {
+                    onUiThreadListener.onResult(null);
+                }else {
+                    UserBean userBean = getGson().fromJson(result, UserBean.class);
+                    onUiThreadListener.onResult(userBean);
+                }
+
             }
         });
     }
