@@ -26,8 +26,7 @@
             android:textColorHint="@color/login_text_color"
             android:background="@drawable/login_register_edit_bg"
             android:paddingLeft="@dimen/margin_left_10_dp"
-            android:paddingRight="@dimen/margin_left_10_dp"
-            android:text="Grace"/>
+            android:paddingRight="@dimen/margin_left_10_dp" />
 
 
         <EditText
@@ -41,8 +40,7 @@
             android:textColorHint="@color/login_text_color"
             android:background="@drawable/login_register_psw_edit_bg"
             android:paddingLeft="@dimen/margin_left_10_dp"
-            android:paddingRight="@dimen/margin_left_10_dp"
-            android:text="1163595644"/>
+            android:paddingRight="@dimen/margin_left_10_dp" />
 
 
         <Button

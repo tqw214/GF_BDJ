@@ -5,6 +5,7 @@ import android.text.TextUtils;
 
 import com.viger.gf_bdj.bean.PostsListBean;
 import com.viger.gf_bdj.http.utils.HttpUtils;
+import com.viger.gf_bdj.pro.base.model.BaseModel;
 import com.viger.gf_bdj.pro.base.presenter.BasePresenter;
 import com.viger.gf_bdj.pro.essence.model.EssenceVideoModel;
 
@@ -24,6 +25,11 @@ public class EssenceVideoPresenter extends BasePresenter {
     public EssenceVideoPresenter(Context context) {
         super(context);
         essenceVideoModel = new EssenceVideoModel(context);
+    }
+
+    @Override
+    public BaseModel bindModel() {
+        return null;
     }
 
     public void getEssenceList(int type, final boolean isDownRefresh,
