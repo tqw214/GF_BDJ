@@ -4,7 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.viger.gf_bdj.pro.essence.view.EssenceVideoFragment;
+import com.viger.gf_bdj.pro.attention.view.AttentionListFragment;
+import com.viger.gf_bdj.pro.attention.view.AttentionSubscriptionFragment;
 
 import java.util.List;
 
@@ -25,19 +26,21 @@ public class AttentionAdapter extends FragmentStatePagerAdapter {
         mTitles = titles;
     }
 
-    /**
-     * @param position
-     * @return
-     */
     @Override
     public Fragment getItem(int position) {
-        EssenceVideoFragment fragment = new EssenceVideoFragment();
+        if (position == 0){
+            AttentionSubscriptionFragment fragment = new AttentionSubscriptionFragment();
+            String[] title = mTitles.get(position).split(TAB_TAG);
+            fragment.setType(Integer.parseInt(title[1]));
+            fragment.setTitle(title[0]);
+            return fragment;
+        }
+        AttentionListFragment fragment = new AttentionListFragment();
         String[] title = mTitles.get(position).split(TAB_TAG);
         fragment.setType(Integer.parseInt(title[1]));
         fragment.setTitle(title[0]);
         return fragment;
     }
-
 
     @Override
     public int getCount() {

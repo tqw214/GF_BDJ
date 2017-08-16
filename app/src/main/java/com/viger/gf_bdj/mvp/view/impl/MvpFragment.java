@@ -24,6 +24,10 @@ public abstract class MvpFragment<P extends MvpBasePresenter> extends Fragment i
         }
     }
 
+    protected P getPresenter() {
+        return presenter;
+    }
+
     //交给别人实现
     public abstract P bindPresenter();
 
