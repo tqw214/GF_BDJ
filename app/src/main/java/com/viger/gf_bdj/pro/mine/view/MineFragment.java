@@ -5,9 +5,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-
 import com.viger.gf_bdj.R;
 import com.viger.gf_bdj.pro.base.view.BaseFragment;
+import com.viger.gf_bdj.pro.base.view.item.DefaultItemBuilder;
 import com.viger.gf_bdj.pro.mine.view.navigation.MineNavigationBuilder;
 
 /**
@@ -26,19 +26,26 @@ public class MineFragment extends BaseFragment {
     @Override
     protected void initContentView(View viewContent) {
         initToolBar(viewContent);
-        layout_default = viewContent.findViewById(R.id.layout_default);
-        layout_default.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), LoginActivity.class);
-                startActivity(intent);
-            }
-        });
+        initItem(viewContent);
     }
 
     @Override
     protected void initData() {
 
+    }
+
+    private void initItem(View viewContent) {
+        DefaultItemBuilder builder = new DefaultItemBuilder(getContext());
+        builder.setLeftIcon(R.drawable.login_unlogin_header)
+                .setLeftText(R.string.login_login_text)
+                .setRightIcon(R.drawable.item_jiantou)
+                .setOnItemClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(getActivity(),LoginActivity.class));
+                    }
+                });
+        builder.buildAndBind((ViewGroup) viewContent);
     }
 
     private void initToolBar(View view) {
