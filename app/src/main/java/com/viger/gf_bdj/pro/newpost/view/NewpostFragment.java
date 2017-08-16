@@ -30,8 +30,8 @@ public class NewpostFragment extends BaseFragment {
     @Override
     protected void initContentView(View viewContent) {
         initToolBar(viewContent);
-        tab_layout = getContentLayout().findViewById(R.id.tab_layout);
-        view_pager = getContentLayout().findViewById(R.id.view_pager);
+        tab_layout = getContentLayout().findViewById(R.id.tab_layout_newpost);
+        view_pager = getContentLayout().findViewById(R.id.view_pager_newpost);
     }
 
     @Override

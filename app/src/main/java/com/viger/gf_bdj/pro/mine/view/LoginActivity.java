@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import com.viger.gf_bdj.R;
 import com.viger.gf_bdj.bean.UserBean;
@@ -13,6 +14,7 @@ import com.viger.gf_bdj.mvp.presenter.impl.MvpBasePresenter;
 import com.viger.gf_bdj.pro.base.presenter.BasePresenter;
 import com.viger.gf_bdj.pro.base.view.BaseActivity;
 import com.viger.gf_bdj.pro.mine.presenter.LoginPresenter;
+import com.viger.gf_bdj.pro.mine.view.navigation.LoginNavigationBuilder;
 import com.viger.gf_bdj.utils.ToastUtil;
 
 /**
@@ -30,6 +32,21 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         initView();
+        initToolBar();
+    }
+
+    private void initToolBar() {
+        LinearLayout ll_login = (LinearLayout) findViewById(R.id.ll_login);
+        LoginNavigationBuilder builder = new LoginNavigationBuilder(this);
+        builder.setLeftIcon(R.drawable.login_close_selector)
+                .setTitle(R.string.login_and_register_text)
+                .setLeftIconOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();
+                    }
+                });
+        builder.createAndBind(ll_login);
     }
 
     private void initView() {

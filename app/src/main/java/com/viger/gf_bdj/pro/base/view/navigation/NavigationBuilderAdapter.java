@@ -1,10 +1,12 @@
 package com.viger.gf_bdj.pro.base.view.navigation;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * Created by Administrator on 2017/8/2.
@@ -90,6 +92,27 @@ public abstract class NavigationBuilderAdapter implements NavigationBuilder {
             imageView.setImageResource(imageRes);
             imageView.setOnClickListener(onClickListener);
         }
+    }
+
+    public void setTitleTextView(int viewId, String title){
+        setTitleTextView(viewId,title,null);
+    }
+
+    public void setTitleTextView(int viewId, String title, View.OnClickListener onClickListener){
+        TextView textView = (TextView)getContentView().findViewById(viewId);
+        if (TextUtils.isEmpty(title)){
+            textView.setVisibility(View.GONE);
+        }else {
+            textView.setVisibility(View.VISIBLE);
+            textView.setText(title);
+        }
+        if (onClickListener != null){
+            textView.setOnClickListener(onClickListener);
+        }
+    }
+
+    public View findViewById(int id){
+        return getContentView().findViewById(id);
     }
 
     public abstract int getLayoutId();
