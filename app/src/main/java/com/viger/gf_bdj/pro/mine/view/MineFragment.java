@@ -3,7 +3,7 @@ package com.viger.gf_bdj.pro.mine.view;
 import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.viger.gf_bdj.R;
@@ -16,7 +16,7 @@ import com.viger.gf_bdj.pro.mine.view.navigation.MineNavigationBuilder;
 
 public class MineFragment extends BaseFragment {
 
-    private Button btn_login;
+    private LinearLayout layout_default;
 
     @Override
     protected int getContentView() {
@@ -26,8 +26,8 @@ public class MineFragment extends BaseFragment {
     @Override
     protected void initContentView(View viewContent) {
         initToolBar(viewContent);
-        btn_login = viewContent.findViewById(R.id.btn_login);
-        btn_login.setOnClickListener(new View.OnClickListener() {
+        layout_default = viewContent.findViewById(R.id.layout_default);
+        layout_default.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
