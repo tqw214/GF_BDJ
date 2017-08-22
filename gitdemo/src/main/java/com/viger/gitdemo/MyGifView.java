@@ -1,4 +1,4 @@
-package com.viger.gf_bdj.ui;
+package com.viger.gitdemo;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -17,6 +17,7 @@ import java.io.InputStream;
 public class MyGifView extends SurfaceView implements SurfaceHolder.Callback{
 
     private SurfaceHolder surfaceHolder;
+    private float gifScale = 1.0f;
     private Movie movie;
     //通过线程进行播放gif
     private Handler handler = new Handler();
@@ -51,23 +52,28 @@ public class MyGifView extends SurfaceView implements SurfaceHolder.Callback{
     }
 
     @Override
-    public void surfaceCreated(SurfaceHolder surfaceHolder) {
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         //创建
         InputStream inputStream = null;
         try {
             inputStream = getContext().getAssets().open("wo.gif");
             //媒体类
             movie = Movie.decodeStream(inputStream);
+
+            int width = (int) (movie.width() * gifScale);
+            int height = (int) (movie.height() * gifScale);
+            this.setMeasuredDimension(width, height);
+
             handler.post(runnable);
         } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            try {
-                if(inputStream != null) inputStream.close();
-            }catch (Exception e) {
-                e.printStackTrace();
-            }
         }
+    }
+
+    @Override
+    public void surfaceCreated(SurfaceHolder surfaceHolder) {
+
     }
 
     @Override
