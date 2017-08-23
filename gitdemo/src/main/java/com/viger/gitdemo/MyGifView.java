@@ -19,6 +19,7 @@ public class MyGifView extends SurfaceView implements SurfaceHolder.Callback{
 
     private SurfaceHolder mHolder;
     private Movie mMovie;
+    private float gifScale = 2.0f;
 
     private Handler mHandler = new Handler();
     private Runnable mRunnable = new Runnable() {
@@ -26,6 +27,7 @@ public class MyGifView extends SurfaceView implements SurfaceHolder.Callback{
         public void run() {
             Canvas canvas = mHolder.lockCanvas();
             canvas.save();
+            canvas.scale(gifScale,gifScale);
             //绘制图片
             mMovie.draw(canvas,0,0);
             //切换每一帧
@@ -55,18 +57,22 @@ public class MyGifView extends SurfaceView implements SurfaceHolder.Callback{
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-    }
-
-    @Override
-    public void surfaceCreated(SurfaceHolder surfaceHolder) {
         //创建
         try {
             InputStream inputStream = getResources().getAssets().open("wo.gif");
             mMovie = Movie.decodeStream(inputStream);
+            int width = (int) (mMovie.width() * gifScale);
+            int height = (int) (mMovie.height() * gifScale);
+            this.setMeasuredDimension(width, height);
             mHandler.post(mRunnable);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void surfaceCreated(SurfaceHolder surfaceHolder) {
+
     }
 
     @Override
