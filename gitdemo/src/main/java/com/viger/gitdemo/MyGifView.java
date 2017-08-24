@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -52,6 +53,17 @@ public class MyGifView extends SurfaceView implements SurfaceHolder.Callback{
     private void init() {
         mHolder = getHolder();
         mHolder.addCallback(this);
+        GifHttpUtils.downloadGif(new HttpUtils.OnHttpResultListener() {
+            @Override
+            public void onResult(InputStream result) {
+                //Bitmap bitmap = BitmapFactory.decodeStream(result);
+               // mMovie = Movie.decodeStream(result);
+            }
+        });
+    }
+
+    private void playGif(byte[] bytes) {
+        mMovie = Movie.decodeByteArray(bytes, 0, bytes.length);
     }
 
     @Override
