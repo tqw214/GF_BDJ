@@ -5,4 +5,10 @@ package com.viger.gitdemo;
  */
 
 public class GifHttpUtils {
+
+    public static void downloadGif(HttpUtils.OnHttpResultListener onHttpResultListener) {
+        HttpTask httpTask = new HttpTask("http://", onHttpResultListener);
+        httpTask.execute();
+    }
+
 }
