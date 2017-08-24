@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/GF_BDJ.iml" filepath="$PROJECT_DIR$/GF_BDJ.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/gitdemo/gitdemo.iml" filepath="$PROJECT_DIR$/gitdemo/gitdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/videodemo/videodemo.iml" filepath="$PROJECT_DIR$/videodemo/videodemo.iml" />
     </modules>
   </component>
 </project>
